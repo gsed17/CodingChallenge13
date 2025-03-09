@@ -1,14 +1,14 @@
 // Task 2: Adding Employee Cards Dynamically
 document.addEventListener("DOMContentLoaded", () => {
-    const employeeContainer = document.getElementById("employeeContainer"); // Employee card container
-    const addEmployeeButton = document.getElementById("addEmployee"); // Button to add employees
-    let employeeCounter = 0; // Counter for unique employee IDs
+    const employeeContainer = document.getElementById("employeeContainer"); 
+    const addEmployeeButton = document.getElementById("addEmployee"); 
+    let employeeCounter = 0; 
 
     function addEmployeeCard(name, position) {
-        // Create a div element for the employee card
+       
         const card = document.createElement("div");
-        card.classList.add("employeeCard"); // Assign a class for styling
-        card.setAttribute("id", `employee-${employeeCounter}`); // Assign a unique ID
+        card.classList.add("employeeCard"); 
+        card.setAttribute("id", `employee-${employeeCounter}`); 
 
         // Create an element for the employee name
         const nameHeading = document.createElement("h3");
@@ -18,21 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const positionParagraph = document.createElement("p");
         positionParagraph.textContent = position;
 
-        // Create a "Remove" button
+        // Create a Remove button
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.classList.add("remove-btn");
 
-        // Create an "Edit" button
+        // Create an Edit button
         const editButton = document.createElement("button");
         editButton.textContent = "Edit";
         editButton.classList.add("edit-btn");
 
         // Attach an event listener to the remove button
         removeButton.addEventListener("click", (event) => {
-            event.stopPropagation(); // Prevent event bubbling
-            card.remove(); // Remove the employee card
-            console.log(`Employee removed: ${card.id}`); // Log removal
+            event.stopPropagation();
+            card.remove(); 
+            console.log(`Employee removed: ${card.id}`); 
         });
 
         // Append all elements to the employee card
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Append the new employee card to the container
         employeeContainer.appendChild(card);
 
-        employeeCounter++; // Increment the unique employee counter
+        employeeCounter++; 
     }
 
     // Event listener for adding new employees
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Add sample employees for testing
+    //Sample
     addEmployeeCard("Doctor Doom", "Scientist");
     addEmployeeCard("Tony Stark", "Engineer");
 });
@@ -66,22 +66,21 @@ function updateEmployeeCardStyles() {
     // Select all employee cards
     const employeeCards = document.querySelectorAll(".employeeCard");
 
-    // Convert NodeList to an array and update styles
     Array.from(employeeCards).forEach(card => {
-        card.style.border = "2px solid black"; // Add a black border
-        card.style.backgroundColor = "#f0f0f0"; // Light grey background
-        card.style.padding = "10px"; // Add spacing for readability
+        card.style.border = "2px solid black"; 
+        card.style.backgroundColor = "#f0f0f0"; 
+        card.style.padding = "10px"; 
     });
 }
 
-// Apply bulk styling to all employee cards
+// Apply styling to cards
 updateEmployeeCardStyles();
 
-// Task 4: Implementing Removal of Employee Cards with Event Bubbling
+// Task 4: Implementing Removal of Employee Cards 
 employeeContainer.addEventListener("click", (event) => {
-    const card = event.target.closest(".employeeCard"); // Identify the clicked card
+    const card = event.target.closest(".employeeCard"); 
     if (card) {
-        console.log(`Employee card clicked: ${card.id}`); // Log the card ID when clicked
+        console.log(`Employee card clicked: ${card.id}`); 
     }
 });
 // Task 5: Inline Editing of Employee Details
@@ -101,7 +100,7 @@ function enableEditing(card) {
     const positionInput = document.createElement("input");
     positionInput.value = currentPosition;
 
-    // Create a "Save" button
+    // Create a Save button
     const saveButton = document.createElement("button");
     saveButton.textContent = "Save";
     saveButton.classList.add("save-btn");
@@ -126,7 +125,6 @@ function enableEditing(card) {
     });
 }
 
-// Attach an event listener to enable editing when clicking the "Edit" button
 employeeContainer.addEventListener("click", (event) => {
     if (event.target.classList.contains("edit-btn")) {
         const card = event.target.closest(".employeeCard");
