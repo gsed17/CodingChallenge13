@@ -5,144 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Management Dashboard</title>
 
-    <!-- Google Font: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
     <style>
-        /* Reset & Base Styles */
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Apply Poppins font to the whole page */
+        /* Apply Times New Roman font */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
+            font-family: "Times New Roman", serif;
+            background-color: #f8f9fa;
             text-align: center;
         }
 
         /* Header */
         header {
-            background-color: #004085;
+            background-color: #003366;
             color: white;
             padding: 20px;
-            font-size: 26px;
-            font-weight: 600;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
+            font-weight: bold;
         }
 
         /* Main Content */
         main {
             margin: 20px auto;
             width: 90%;
-            max-width: 800px;
+            max-width: 600px;
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
         }
 
         /* Button Styling */
         #addEmployee {
-            background: #28a745;
+            background: #0056b3;
             color: white;
-            padding: 14px 22px;
+            padding: 10px 16px;
             font-size: 16px;
-            font-weight: 500;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
             margin-bottom: 15px;
-            transition: 0.3s ease;
         }
 
         #addEmployee:hover {
-            background: #218838;
+            background: #004080;
         }
 
         /* Employee Container */
         #employeeContainer {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
             padding-top: 10px;
         }
 
         /* Employee Card */
         .employeeCard {
             background: white;
-            width: 270px;
-            padding: 18px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s;
-        }
-
-        .employeeCard:hover {
-            transform: scale(1.04);
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #777;
+            text-align: left;
         }
 
         .employeeCard h3 {
-            color: #333;
-            margin-bottom: 6px;
+            color: #222;
+            margin-bottom: 5px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: bold;
         }
 
         .employeeCard p {
-            color: #555;
+            color: #444;
             font-size: 14px;
-            margin-bottom: 12px;
-            font-weight: 400;
+            margin-bottom: 10px;
         }
 
         /* Buttons in Employee Card */
         .card-buttons {
             display: flex;
-            justify-content: space-between;
-            gap: 8px;
+            flex-direction: column;
+            gap: 5px;
         }
 
         .card-buttons button {
-            flex: 1;
-            padding: 10px;
+            width: 100%;
+            padding: 8px;
             border: none;
             border-radius: 5px;
             font-size: 14px;
-            font-weight: 500;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         .edit-btn {
-            background: #007bff;
-            color: white;
+            background: #ffcc00;
+            color: black;
         }
 
         .edit-btn:hover {
-            background: #0056b3;
+            background: #e6b800;
         }
 
         .remove-btn {
-            background: #dc3545;
+            background: #cc0000;
             color: white;
         }
 
         .remove-btn:hover {
-            background: #c82333;
+            background: #a30000;
         }
 
         /* Footer */
         footer {
-            background-color: #004085;
+            background-color: #003366;
             color: white;
             padding: 15px;
             font-size: 14px;
             margin-top: 20px;
-            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -161,10 +148,11 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Employee Corp | All Rights Reserved</p>
+        <p>2025 Coding Challenge 13</p>
     </footer>
 
     <!-- JavaScript File -->
     <script src="cc_13.js"></script>
 </body>
 </html>
+
