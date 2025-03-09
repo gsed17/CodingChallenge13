@@ -60,3 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
     addEmployeeCard("Doctor Doom", "Scientist");
     addEmployeeCard("Tony Stark", "Engineer");
 });
+
+// Task 3: Converting NodeLists to Arrays for Bulk Updates
+function updateEmployeeCardStyles() {
+    // Select all employee cards
+    const employeeCards = document.querySelectorAll(".employeeCard");
+
+    // Convert NodeList to an array and update styles
+    Array.from(employeeCards).forEach(card => {
+        card.style.border = "2px solid black"; // Add a black border
+        card.style.backgroundColor = "#f0f0f0"; // Light grey background
+        card.style.padding = "10px"; // Add spacing for readability
+    });
+}
+
+// Apply bulk styling to all employee cards
+updateEmployeeCardStyles();
+
