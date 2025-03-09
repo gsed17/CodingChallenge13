@@ -84,3 +84,54 @@ employeeContainer.addEventListener("click", (event) => {
         console.log(`Employee card clicked: ${card.id}`); // Log the card ID when clicked
     }
 });
+// Task 5: Inline Editing of Employee Details
+function enableEditing(card) {
+    // Get references to the employee name and position elements
+    const nameElement = card.querySelector("h3");
+    const positionElement = card.querySelector("p");
+
+    // Store current values for editing
+    const currentName = nameElement.textContent;
+    const currentPosition = positionElement.textContent;
+
+    // Create input fields for editing
+    const nameInput = document.createElement("input");
+    nameInput.value = currentName;
+
+    const positionInput = document.createElement("input");
+    positionInput.value = currentPosition;
+
+    // Create a "Save" button
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Save";
+    saveButton.classList.add("save-btn");
+
+    // Replace the static text with input fields
+    card.replaceChild(nameInput, nameElement);
+    card.replaceChild(positionInput, positionElement);
+    card.insertBefore(saveButton, card.querySelector(".remove-btn"));
+
+    // Event listener for saving the updated details
+    saveButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent event bubbling
+
+        // Update the employee card with the new values
+        nameElement.textContent = nameInput.value;
+        positionElement.textContent = positionInput.value;
+
+        // Restore static text
+        card.replaceChild(nameElement, nameInput);
+        card.replaceChild(positionElement, positionInput);
+        card.removeChild(saveButton); // Remove the save button
+    });
+}
+
+// Attach an event listener to enable editing when clicking the "Edit" button
+employeeContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("edit-btn")) {
+        const card = event.target.closest(".employeeCard");
+        if (card) {
+            enableEditing(card);
+        }
+    }
+});
