@@ -77,3 +77,10 @@ function updateEmployeeCardStyles() {
 // Apply bulk styling to all employee cards
 updateEmployeeCardStyles();
 
+// Task 4: Implementing Removal of Employee Cards with Event Bubbling
+employeeContainer.addEventListener("click", (event) => {
+    const card = event.target.closest(".employeeCard"); // Identify the clicked card
+    if (card) {
+        console.log(`Employee card clicked: ${card.id}`); // Log the card ID when clicked
+    }
+});
